@@ -9,3 +9,14 @@ increaseEle.addEventListener("click", () => {
   console.log(count);
   displayEle.textContent = count;
 });
+
+resetEle.addEventListener("click", () => {
+  count = 0;
+  displayEle.textContent = 0;
+});
+
+decreaseEle.addEventListener("click", () => {
+  count--;
+  console.log(count);
+  displayEle.textContent = count;
+});
