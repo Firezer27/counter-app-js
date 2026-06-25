@@ -6,26 +6,26 @@ const displayEle = document.querySelector(".display");
 let count = 0;
 increaseEle.addEventListener("click", () => {
   count++;
-  console.log(count);
-  displayEle.textContent = count;
-  localStorage.setItem("key", count);
+  updatedDisplay();
 });
 
 resetEle.addEventListener("click", () => {
   count = 0;
-  displayEle.textContent = 0;
-  localStorage.setItem("key", count);
+  updatedDisplay();
 });
 
 decreaseEle.addEventListener("click", () => {
   count--;
-  console.log(count);
-  displayEle.textContent = count;
-  localStorage.setItem("key", count);
+  updatedDisplay();
 });
 
-if (Number(localStorage.getItem("key")) == null) {
+function updatedDisplay() {
+  displayEle.textContent = count;
+  localStorage.setItem("counterValue", count);
+}
+let counterValues = JSON.parse(localStorage.getItem("key"));
+if (counterValues == null) {
   displayEle.textContent = 0;
 } else {
-  displayEle.textContent = Number(localStorage.getItem("key"));
+  displayEle.textContent = Number(counterValues);
 }
